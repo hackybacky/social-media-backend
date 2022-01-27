@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const app = express();
 const userRouter = require("./routes/users")
 const userAuth = require("./routes/auth")
+const userPost=require("./routes/posts")
 //user to hide important keys
 dotenv.config();
 //connecting database
@@ -21,7 +22,7 @@ app.use(morgan("common"));
 
 app.use("/api/users", userRouter);
 app.use("/api/auth", userAuth); 
-
+app.use("/api/posts",userPost)
 //listening port 8800
 
 app.listen(8800, () =>  {
